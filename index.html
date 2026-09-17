@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <aside class="site-controls" aria-label="Language and text direction controls">
+    <button class="control-button" id="language-toggle" type="button" aria-pressed="false">العربية</button>
+    <button class="control-button" id="direction-toggle" type="button" aria-pressed="false">Use RTL</button>
+  </aside>
   <header class="hero">
     <div class="hero-nature" aria-hidden="true">
       <span class="branch branch-left"></span>
@@ -213,6 +217,184 @@
       event.preventDefault();
       formSuccess.hidden = false;
       newsletterForm.reset();
+    });
+
+    const languageToggle = document.querySelector('#language-toggle');
+    const directionToggle = document.querySelector('#direction-toggle');
+    const pageRoot = document.documentElement;
+
+    const englishContent = {
+      topLink: 'Explore the timeline <span aria-hidden="true">&#8594;</span>',
+      heroEyebrow: 'Intel sustainability | 2006 to 2040',
+      heroTitle: 'Growing a better future,<br><em>one chip at a time.</em>',
+      heroCopy: "Follow Intel's environmental journey as technology, people, and the natural world move forward together.",
+      heroButton: 'Start exploring <span aria-hidden="true">&#8595;</span>',
+      heroNote: 'Responsible technology for a living planet',
+      introEyebrow: 'A living timeline',
+      introTitle: 'Progress takes root over time.',
+      introCopy: "Intel's RISE strategy connects climate action, water stewardship, waste reduction, and responsible technology. Select a milestone to see the story behind the goal.",
+      timelineEyebrow: 'Six milestones',
+      timelineTitle: 'From footprint to forest floor.',
+      scrollHint: 'Scroll sideways to explore <span aria-hidden="true">&#8594;</span>',
+      cardTitles: ['Turning the corner', 'RISE strategy begins', 'Net-zero commitment', '99% renewable electricity', 'Collaboration grows', 'A net-zero horizon'],
+      cardCopies: [
+        "Intel reached its peak operational greenhouse gas emissions and began accelerating investments in abatement and efficiency.",
+        'Intel introduced its RISE strategy and 2030 goals to make sustainability part of how it designs, builds, and delivers technology.',
+        'Intel announced a goal to reach net-zero greenhouse gas emissions across its global operations by 2040.',
+        'Intel reported that 99% of its electricity worldwide came from renewable sources, reducing the footprint of its operations.',
+        "Intel brought suppliers, government, and industry leaders together at its Sustainability Summit to share practical solutions.",
+        "Intel's long-term target is to achieve net-zero greenhouse gas emissions across global operations."
+      ],
+      detailCopies: [
+        'This turning point helped shape the long-term climate work that followed, from cleaner manufacturing to renewable electricity.',
+        'RISE stands for Responsible, Inclusive, Sustainable, and Enabling. Its goals cover climate, water, waste, and more.',
+        'The commitment focuses on Scope 1 and 2 emissions, with progress supported by efficiency, electrification, and renewable energy.',
+        'Renewable electricity is one part of a wider plan that also includes conservation, lower-carbon fuels, and supplier collaboration.',
+        'Semiconductor sustainability depends on the whole value chain, so collaboration helps ideas travel beyond one company.',
+        'The horizon is still ahead, making measurement, transparent reporting, and continued innovation essential.'
+      ],
+      readMilestone: 'Read milestone <span aria-hidden="true">+</span>',
+      newsletterEyebrow: 'Stay connected',
+      newsletterTitle: 'Small updates. Meaningful progress.',
+      newsletterIntro: "Get occasional news about Intel's sustainability goals, actions, and reporting delivered to your inbox.",
+      newsletterHeading: "What you'll receive",
+      newsletterCopy: 'News about climate action, water stewardship, circularity, and the people working toward a more responsible technology industry.',
+      newsletterNote: 'No more than one email per month.',
+      emailLabel: 'Email address',
+      emailPlaceholder: 'you@example.com',
+      subscribe: 'Subscribe',
+      emailHelp: 'By subscribing, you agree to receive sustainability updates.',
+      success: 'Thanks for subscribing.',
+      achievementsEyebrow: 'The bigger picture',
+      achievementsTitle: 'Healthy systems make better technology.',
+      achievementsIntro: "These focus areas show how Intel's sustainability work reaches beyond a single emissions number.",
+      achievementTitles: ['Climate action', 'Water stewardship', 'Circular design'],
+      achievementCopies: [
+        'Reducing operational emissions through efficiency, renewable electricity, and a net-zero pathway.',
+        'Investing in conservation and reuse so advanced manufacturing can use water more responsibly.',
+        'Reducing waste and recovering materials as products and manufacturing processes evolve.'
+      ],
+      footerTagline: 'Intel sustainability, in progress.',
+      footerPrompt: 'Explore responsibly <span aria-hidden="true">&#10022;</span>',
+      footerLinks: ['Privacy Policy', 'Terms of Use', 'Contact']
+    };
+
+    const arabicContent = {
+      topLink: 'استكشف الخط الزمني <span aria-hidden="true">&#8594;</span>',
+      heroEyebrow: 'استدامة إنتل | 2006 إلى 2040',
+      heroTitle: 'نبني مستقبلاً أفضل،<br><em>شريحة تلو الأخرى.</em>',
+      heroCopy: 'تابع رحلة إنتل البيئية مع تطور التكنولوجيا والناس والعالم الطبيعي معاً.',
+      heroButton: 'ابدأ الاستكشاف <span aria-hidden="true">&#8595;</span>',
+      heroNote: 'تكنولوجيا مسؤولة من أجل كوكب حي',
+      introEyebrow: 'خط زمني نابض بالحياة',
+      introTitle: 'يتجذر التقدم مع مرور الوقت.',
+      introCopy: 'تربط استراتيجية RISE من إنتل بين العمل المناخي وإدارة المياه وتقليل النفايات والتكنولوجيا المسؤولة. اختر محطة لمعرفة القصة وراء الهدف.',
+      timelineEyebrow: 'ست محطات',
+      timelineTitle: 'من البصمة إلى أرض الغابة.',
+      scrollHint: 'مرر جانبياً للاستكشاف <span aria-hidden="true">&#8594;</span>',
+      cardTitles: ['نقطة التحول', 'بدء استراتيجية RISE', 'التزام بصافي الانبعاثات الصفري', 'كهرباء متجددة بنسبة 99٪', 'تعاون يتوسع', 'أفق بصافي انبعاثات صفري'],
+      cardCopies: [
+        'بلغت انبعاثات إنتل التشغيلية من غازات الدفيئة ذروتها، وبدأت الشركة بتسريع استثماراتها في الحد منها والكفاءة.',
+        'قدمت إنتل استراتيجية RISE وأهداف 2030 لجعل الاستدامة جزءاً من تصميم التكنولوجيا وبنائها وتقديمها.',
+        'أعلنت إنتل هدف الوصول إلى صافي انبعاثات صفري في عملياتها حول العالم بحلول عام 2040.',
+        'أفادت إنتل بأن 99٪ من الكهرباء في أنحاء العالم جاءت من مصادر متجددة، مما قلل أثر عملياتها.',
+        'جمعت إنتل الموردين والحكومات وقادة القطاع في قمة الاستدامة لمشاركة الحلول العملية.',
+        'يتمثل هدف إنتل طويل المدى في تحقيق صافي انبعاثات صفري من غازات الدفيئة في عملياتها العالمية.'
+      ],
+      detailCopies: [
+        'ساعدت نقطة التحول هذه في تشكيل العمل المناخي طويل المدى، من التصنيع الأنظف إلى الكهرباء المتجددة.',
+        'ترمز RISE إلى المسؤولية والشمول والاستدامة والتمكين، وتشمل أهدافها المناخ والمياه والنفايات وغيرها.',
+        'يركز الالتزام على انبعاثات النطاقين الأول والثاني، بدعم من الكفاءة والكهرباء والطاقة المتجددة.',
+        'تمثل الكهرباء المتجددة جزءاً من خطة أوسع تشمل الحفاظ على الموارد والوقود الأقل انبعاثاً والتعاون مع الموردين.',
+        'تعتمد استدامة أشباه الموصلات على سلسلة القيمة بأكملها، لذلك يساعد التعاون على نشر الأفكار خارج نطاق الشركة.',
+        'لا يزال الأفق أمامنا، مما يجعل القياس وإعداد التقارير بشفافية والابتكار المستمر أموراً أساسية.'
+      ],
+      readMilestone: 'اقرأ عن المحطة <span aria-hidden="true">+</span>',
+      newsletterEyebrow: 'ابقَ على اتصال',
+      newsletterTitle: 'تحديثات صغيرة. تقدم مؤثر.',
+      newsletterIntro: 'احصل على أخبار دورية عن أهداف إنتل وإجراءاتها وتقاريرها في مجال الاستدامة مباشرة إلى بريدك الإلكتروني.',
+      newsletterHeading: 'ما الذي ستتلقاه؟',
+      newsletterCopy: 'أخبار عن العمل المناخي وإدارة المياه والاقتصاد الدائري والأشخاص الذين يعملون من أجل صناعة تكنولوجيا أكثر مسؤولية.',
+      newsletterNote: 'لن نرسل أكثر من رسالة واحدة شهرياً.',
+      emailLabel: 'عنوان البريد الإلكتروني',
+      emailPlaceholder: 'you@example.com',
+      subscribe: 'اشترك',
+      emailHelp: 'بالاشتراك، أنت توافق على تلقي تحديثات الاستدامة.',
+      success: 'شكراً لاشتراكك.',
+      achievementsEyebrow: 'الصورة الأكبر',
+      achievementsTitle: 'الأنظمة الصحية تصنع تكنولوجيا أفضل.',
+      achievementsIntro: 'توضح مجالات التركيز هذه كيف يتجاوز عمل إنتل في الاستدامة رقماً واحداً للانبعاثات.',
+      achievementTitles: ['العمل المناخي', 'الإدارة الرشيدة للمياه', 'التصميم الدائري'],
+      achievementCopies: [
+        'خفض الانبعاثات التشغيلية من خلال الكفاءة والكهرباء المتجددة ومسار الوصول إلى صافي انبعاثات صفري.',
+        'الاستثمار في الحفاظ على المياه وإعادة استخدامها حتى يستخدم التصنيع المتقدم المياه بمسؤولية أكبر.',
+        'تقليل النفايات واستعادة المواد مع تطور المنتجات وعمليات التصنيع.'
+      ],
+      footerTagline: 'استدامة إنتل، رحلة مستمرة.',
+      footerPrompt: 'استكشف بمسؤولية <span aria-hidden="true">&#10022;</span>',
+      footerLinks: ['سياسة الخصوصية', 'شروط الاستخدام', 'تواصل معنا']
+    };
+
+    function updateContent(content, isArabic) {
+      document.querySelector('.top-bar a').innerHTML = content.topLink;
+      document.querySelector('.hero-content .eyebrow').textContent = content.heroEyebrow;
+      document.querySelector('.hero-content h1').innerHTML = content.heroTitle;
+      document.querySelector('.hero-copy').textContent = content.heroCopy;
+      document.querySelector('.hero-content .button').innerHTML = content.heroButton;
+      document.querySelector('.hero-note').textContent = content.heroNote;
+      document.querySelector('.intro .eyebrow').textContent = content.introEyebrow;
+      document.querySelector('.intro h2').textContent = content.introTitle;
+      document.querySelector('.intro > p:last-child').textContent = content.introCopy;
+      document.querySelector('.timeline-section .eyebrow').textContent = content.timelineEyebrow;
+      document.querySelector('.timeline-section h2').textContent = content.timelineTitle;
+      document.querySelector('.scroll-hint').innerHTML = content.scrollHint;
+
+      document.querySelectorAll('.timeline-card').forEach((card, index) => {
+        card.querySelector('h3').textContent = content.cardTitles[index];
+        card.querySelector('.card-content > p:not(.year):not(.hidden-detail)').textContent = content.cardCopies[index];
+        card.querySelector('.details-button').innerHTML = content.readMilestone;
+        card.querySelector('.hidden-detail').textContent = content.detailCopies[index];
+      });
+
+      document.querySelector('.newsletter-section .eyebrow').textContent = content.newsletterEyebrow;
+      document.querySelector('#newsletter-title').textContent = content.newsletterTitle;
+      document.querySelector('.newsletter-intro > p:last-child').textContent = content.newsletterIntro;
+      document.querySelector('.newsletter-topic h3').textContent = content.newsletterHeading;
+      document.querySelector('.newsletter-topic > p:not(.newsletter-number):not(.newsletter-note)').textContent = content.newsletterCopy;
+      document.querySelector('.newsletter-note').textContent = content.newsletterNote;
+      document.querySelector('.form-label').textContent = content.emailLabel;
+      document.querySelector('#email').placeholder = content.emailPlaceholder;
+      document.querySelector('.btn-subscribe').textContent = content.subscribe;
+      document.querySelector('#email-help').textContent = content.emailHelp;
+      document.querySelector('#form-success').textContent = content.success;
+      document.querySelector('.achievements .eyebrow').textContent = content.achievementsEyebrow;
+      document.querySelector('.achievements h2').textContent = content.achievementsTitle;
+      document.querySelector('.achievements .section-heading > p').textContent = content.achievementsIntro;
+      document.querySelectorAll('.achievement-item').forEach((item, index) => {
+        item.querySelector('h3').textContent = content.achievementTitles[index];
+        item.querySelector('p').textContent = content.achievementCopies[index];
+      });
+      document.querySelector('.site-footer p').textContent = content.footerTagline;
+      document.querySelector('.site-footer p:last-of-type').innerHTML = content.footerPrompt;
+      document.querySelectorAll('.site-footer nav a').forEach((link, index) => {
+        link.textContent = content.footerLinks[index];
+      });
+      pageRoot.lang = isArabic ? 'ar' : 'en';
+      document.querySelector('.newsletter-section').lang = isArabic ? 'ar' : 'en';
+      languageToggle.textContent = isArabic ? 'English' : 'العربية';
+      directionToggle.textContent = pageRoot.dir === 'rtl' ? 'Use LTR' : 'استخدم RTL';
+    }
+
+    languageToggle.addEventListener('click', () => {
+      const isArabic = pageRoot.lang !== 'ar';
+      updateContent(isArabic ? arabicContent : englishContent, isArabic);
+      languageToggle.setAttribute('aria-pressed', String(isArabic));
+    });
+
+    directionToggle.addEventListener('click', () => {
+      pageRoot.dir = pageRoot.dir === 'rtl' ? 'ltr' : 'rtl';
+      directionToggle.setAttribute('aria-pressed', String(pageRoot.dir === 'rtl'));
+      directionToggle.textContent = pageRoot.dir === 'rtl' ? 'Use LTR' : 'استخدم RTL';
     });
   </script>
 </body>

@@ -15,6 +15,10 @@ html { scroll-behavior: smooth; }
 
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: Georgia, 'Times New Roman', serif; }
 
+.site-controls { background: var(--forest); border: 1px solid rgba(243, 241, 232, .35); bottom: 22px; box-shadow: 0 8px 24px rgba(23, 61, 42, .24); display: flex; gap: 8px; padding: 8px; position: fixed; right: 22px; z-index: 10; }
+.control-button { background: var(--paper); border: 1px solid var(--paper); color: var(--forest); cursor: pointer; font-family: Arial, sans-serif; font-size: .7rem; font-weight: bold; min-height: 38px; padding: 8px 12px; }
+.control-button:hover, .control-button:focus-visible { background: var(--moss); border-color: var(--moss); outline: 3px solid rgba(224, 123, 67, .55); outline-offset: 2px; }
+
 a { color: inherit; }
 
 .hero { min-height: 680px; padding: 28px 7%; color: var(--cream); background: linear-gradient(115deg, rgba(17, 54, 37, .98), rgba(32, 92, 53, .88)), url('img/4.jpg') center / cover; position: relative; overflow: hidden; }
@@ -94,15 +98,16 @@ h2 { color: var(--forest); font-size: clamp(2rem, 4vw, 4rem); font-weight: norma
 .sources a { color: var(--leaf); }
 footer { background: var(--forest); color: var(--cream); display: flex; font-family: Arial, sans-serif; font-size: .72rem; justify-content: space-between; letter-spacing: .1em; padding: 25px 7%; text-transform: uppercase; }
 footer p { margin-bottom: 0; }
-.newsletter-section { background: #dce5c8; direction: rtl; }
-.newsletter-intro, .newsletter-topic, .newsletter-form { background: var(--paper); padding: 32px; }
+.newsletter-section { background: #dce5c8; border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); }
+.newsletter-section .container { max-width: 1240px; }
+.newsletter-intro, .newsletter-topic, .newsletter-form { background: var(--paper); height: 100%; padding: 36px; }
 .newsletter-intro h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
 .newsletter-intro > p:last-child, .newsletter-topic > p:not(.newsletter-number):not(.newsletter-note) { line-height: 1.6; }
 .newsletter-topic { border-top: 5px solid var(--orange); }
 .newsletter-number { color: var(--orange); font-family: Arial, sans-serif; font-size: .75rem; font-weight: bold; letter-spacing: .1em; }
 .newsletter-topic h3 { color: var(--forest); font-size: 1.5rem; font-weight: normal; }
 .newsletter-note { color: var(--leaf); font-family: Arial, sans-serif; font-size: .75rem; margin-bottom: 0; }
-.newsletter-form { border: 1px solid var(--line); }
+.newsletter-form { border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; }
 .newsletter-form .form-label { color: var(--forest); font-family: Arial, sans-serif; font-size: .85rem; font-weight: bold; }
 .newsletter-form .form-control { border-color: var(--line); border-radius: 0; min-height: 48px; }
 .newsletter-form .form-control:focus { border-color: var(--leaf); box-shadow: 0 0 0 .2rem rgba(57, 122, 75, .2); }
@@ -110,6 +115,8 @@ footer p { margin-bottom: 0; }
 .btn-subscribe:hover, .btn-subscribe:focus { background: var(--leaf); border-color: var(--leaf); color: #fff; }
 .form-text, .form-success { font-family: Arial, sans-serif; font-size: .75rem; line-height: 1.5; }
 .form-success { color: var(--leaf); font-weight: bold; margin-bottom: 0; margin-top: 18px; }
+.newsletter-section[lang="ar"] { font-family: Tahoma, Arial, sans-serif; }
+.newsletter-section[lang="ar"] .eyebrow, .newsletter-section[lang="ar"] .form-label, .newsletter-section[lang="ar"] .form-text, .newsletter-section[lang="ar"] .btn-subscribe { letter-spacing: 0; }
 .site-footer { align-items: center; }
 .site-footer nav { display: flex; gap: 24px; }
 .site-footer nav a { color: var(--cream); text-decoration: none; }
@@ -143,6 +150,7 @@ footer p { margin-bottom: 0; }
 	footer { display: block; line-height: 1.7; }
 	footer p:last-child { margin-top: 12px; }
 	.site-footer nav { flex-wrap: wrap; gap: 10px 18px; margin-top: 20px; }
+	.site-controls { bottom: 12px; flex-direction: column; right: 12px; }
 	.input-group { display: block; }
 	.btn-subscribe { margin-top: 10px; min-height: 48px; width: 100%; }
 }
