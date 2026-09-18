@@ -102,10 +102,36 @@ footer p { margin-bottom: 0; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+	margin: 0 auto;
   text-align: center;
 }
 .newsletter-intro > * {
   max-width: 520px;
+}
+.lang-controls {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	justify-content: center;
+	margin: 18px auto 10px;
+	width: 100%;
+}
+.lang-button {
+	background: var(--forest);
+	border: 1px solid var(--forest);
+	color: #fff;
+	cursor: pointer;
+	font-family: Arial, sans-serif;
+	font-size: .74rem;
+	letter-spacing: .08em;
+	padding: 10px 14px;
+	text-transform: uppercase;
+}
+.lang-button:hover, .lang-button:focus-visible {
+	background: var(--leaf);
+	border-color: var(--leaf);
+	outline: none;
 }
 .newsletter-intro h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
 .newsletter-section h2 i, .newsletter-section h3 i { color: var(--orange); font-size: .8em; margin-inline-end: 8px; }

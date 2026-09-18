@@ -135,49 +135,53 @@
         <div class="row g-4 align-items-stretch">
           <div class="col-12 col-md-4">
             <div class="newsletter-intro h-100">
-              <p class="eyebrow">Stay connected</p>
-              <h2 id="newsletter-title"><i class="bi bi-arrow-up-right-circle" aria-hidden="true"></i> Small updates. Meaningful progress.</h2>
-              <p>Get occasional news about Intel's sustainability goals, actions, and reporting delivered to your inbox.</p>
-              <a class="learn-more-button" href="#timeline">Learn more <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+              <p class="eyebrow" data-i18n="newsletter-eyebrow">Stay connected</p>
+              <h2 id="newsletter-title" data-i18n="newsletter-title"><i class="bi bi-arrow-up-right-circle" aria-hidden="true"></i> Small updates. Meaningful progress.</h2>
+              <p data-i18n="newsletter-copy">Get occasional news about Intel's sustainability goals, actions, and reporting delivered to your inbox.</p>
+              <div class="lang-controls" aria-label="Language controls">
+                <button class="lang-button" id="translate-button" type="button">Use Arabic</button>
+                <button class="lang-button" id="direction-button" type="button">Use RTL</button>
+              </div>
+              <a class="learn-more-button" href="#timeline" data-i18n="newsletter-link">Learn more <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="newsletter-topic h-100">
               <p class="newsletter-number">01</p>
-              <h3><i class="bi bi-globe-americas" aria-hidden="true"></i> What you'll receive</h3>
-              <p>News about climate action, water stewardship, circularity, and the people working toward a more responsible technology industry.</p>
-              <p class="newsletter-note">No more than one email per month.</p>
-              <button class="learn-more-button" type="button" data-bs-toggle="collapse" data-bs-target="#newsletter-topics" aria-expanded="false" aria-controls="newsletter-topics">Learn more <i class="bi bi-plus-lg" aria-hidden="true"></i></button>
-              <div class="collapse learn-more-detail" id="newsletter-topics">We focus on practical progress that can be measured, shared, and improved over time.</div>
+              <h3 data-i18n="topic-title"><i class="bi bi-globe-americas" aria-hidden="true"></i> What you'll receive</h3>
+              <p data-i18n="topic-copy">News about climate action, water stewardship, circularity, and the people working toward a more responsible technology industry.</p>
+              <p class="newsletter-note" data-i18n="topic-note">No more than one email per month.</p>
+              <button class="learn-more-button" type="button" data-bs-toggle="collapse" data-bs-target="#newsletter-topics" aria-expanded="false" aria-controls="newsletter-topics" data-i18n="topic-button">Learn more <i class="bi bi-plus-lg" aria-hidden="true"></i></button>
+              <div class="collapse learn-more-detail" id="newsletter-topics" data-i18n="topic-detail">We focus on practical progress that can be measured, shared, and improved over time.</div>
             </div>
           </div>
           <div class="col-12 col-md-4">
             <form class="newsletter-form h-100" id="newsletter-form">
-              <h3><i class="bi bi-envelope-paper" aria-hidden="true"></i> Join the movement</h3>
-              <label class="form-label" for="email">Email address</label>
+              <h3 data-i18n="form-title"><i class="bi bi-envelope-paper" aria-hidden="true"></i> Join the movement</h3>
+              <label class="form-label" for="email" data-i18n="form-label">Email address</label>
               <div class="input-group">
                 <input class="form-control" type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="email-help" />
-                <button class="btn btn-subscribe" type="submit">Subscribe</button>
+                <button class="btn btn-subscribe" type="submit" data-i18n="subscribe-button">Subscribe</button>
               </div>
-              <p class="form-text" id="email-help">By subscribing, you agree to receive sustainability updates.</p>
-              <p class="form-success" id="form-success" role="status" aria-live="polite" hidden>Thanks for subscribing.</p>
-              <button class="learn-more-button" type="button" data-bs-toggle="collapse" data-bs-target="#subscribe-details" aria-expanded="false" aria-controls="subscribe-details">Learn more <i class="bi bi-plus-lg" aria-hidden="true"></i></button>
-              <div class="collapse learn-more-detail" id="subscribe-details">Your email is used for this classroom demonstration only.</div>
+              <p class="form-text" id="email-help" data-i18n="form-help">By subscribing, you agree to receive sustainability updates.</p>
+              <p class="form-success" id="form-success" role="status" aria-live="polite" hidden data-i18n="form-success">Thanks for subscribing.</p>
+              <button class="learn-more-button" type="button" data-bs-toggle="collapse" data-bs-target="#subscribe-details" aria-expanded="false" aria-controls="subscribe-details" data-i18n="form-link">Learn more <i class="bi bi-plus-lg" aria-hidden="true"></i></button>
+              <div class="collapse learn-more-detail" id="subscribe-details" data-i18n="form-detail">Your email is used for this classroom demonstration only.</div>
             </form>
           </div>
         </div>
         <div class="accordion newsletter-accordion" id="sustainability-accordion">
           <div class="accordion-item">
-            <h3 class="accordion-header" id="climate-heading"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#climate-panel" aria-expanded="true" aria-controls="climate-panel"><i class="bi bi-cloud-sun" aria-hidden="true"></i> Climate action</button></h3>
-            <div id="climate-panel" class="accordion-collapse collapse show" aria-labelledby="climate-heading" data-bs-parent="#sustainability-accordion"><div class="accordion-body">Intel is working toward net-zero greenhouse gas emissions across global operations by 2040.</div></div>
+            <h3 class="accordion-header" id="climate-heading"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#climate-panel" aria-expanded="true" aria-controls="climate-panel" data-i18n="accordion-climate"><i class="bi bi-cloud-sun" aria-hidden="true"></i> Climate action</button></h3>
+            <div id="climate-panel" class="accordion-collapse collapse show" aria-labelledby="climate-heading" data-bs-parent="#sustainability-accordion"><div class="accordion-body" data-i18n="accordion-climate-text">Intel is working toward net-zero greenhouse gas emissions across global operations by 2040.</div></div>
           </div>
           <div class="accordion-item">
-            <h3 class="accordion-header" id="water-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#water-panel" aria-expanded="false" aria-controls="water-panel"><i class="bi bi-droplet" aria-hidden="true"></i> Water stewardship</button></h3>
-            <div id="water-panel" class="accordion-collapse collapse" aria-labelledby="water-heading" data-bs-parent="#sustainability-accordion"><div class="accordion-body">Conservation and reuse help advanced manufacturing use water more responsibly.</div></div>
+            <h3 class="accordion-header" id="water-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#water-panel" aria-expanded="false" aria-controls="water-panel" data-i18n="accordion-water"><i class="bi bi-droplet" aria-hidden="true"></i> Water stewardship</button></h3>
+            <div id="water-panel" class="accordion-collapse collapse" aria-labelledby="water-heading" data-bs-parent="#sustainability-accordion"><div class="accordion-body" data-i18n="accordion-water-text">Conservation and reuse help advanced manufacturing use water more responsibly.</div></div>
           </div>
           <div class="accordion-item">
-            <h3 class="accordion-header" id="circular-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#circular-panel" aria-expanded="false" aria-controls="circular-panel"><i class="bi bi-recycle" aria-hidden="true"></i> Circular design</button></h3>
-            <div id="circular-panel" class="accordion-collapse collapse" aria-labelledby="circular-heading" data-bs-parent="#sustainability-accordion"><div class="accordion-body">Circular thinking reduces waste and helps recover materials as products evolve.</div></div>
+            <h3 class="accordion-header" id="circular-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#circular-panel" aria-expanded="false" aria-controls="circular-panel" data-i18n="accordion-circular"><i class="bi bi-recycle" aria-hidden="true"></i> Circular design</button></h3>
+            <div id="circular-panel" class="accordion-collapse collapse" aria-labelledby="circular-heading" data-bs-parent="#sustainability-accordion"><div class="accordion-body" data-i18n="accordion-circular-text">Circular thinking reduces waste and helps recover materials as products evolve.</div></div>
           </div>
         </div>
       </div>
@@ -214,6 +218,128 @@
   </footer>
 
   <script>
+    const translations = {
+      'newsletter-eyebrow': { en: 'Stay connected', ar: 'ابقَ على اتصال' },
+      'newsletter-title': { en: 'Small updates. Meaningful progress.', ar: 'تحديثات صغيرة. تقدم ذو معنى.' },
+      'newsletter-copy': { en: "Get occasional news about Intel's sustainability goals, actions, and reporting delivered to your inbox.", ar: 'احصل على أخبار دورية حول أهداف الاستدامة في إنتل والإجراءات والتقارير المرسلة إلى بريدك الإلكتروني.' },
+      'newsletter-link': { en: 'Learn more', ar: 'معرفة المزيد' },
+      'topic-title': { en: "What you'll receive", ar: 'ماذا ستحصل عليه' },
+      'topic-copy': { en: 'News about climate action, water stewardship, circularity, and the people working toward a more responsible technology industry.', ar: 'أخبار عن العمل المناخي وحفظ المياه والدورة الاقتصادية والناس العاملين من أجل صناعة تكنولوجية أكثر مسؤولية.' },
+      'topic-note': { en: 'No more than one email per month.', ar: 'لا أكثر من رسالة بريد إلكتروني واحدة في الشهر.' },
+      'topic-button': { en: 'Learn more', ar: 'معرفة المزيد' },
+      'topic-detail': { en: 'We focus on practical progress that can be measured, shared, and improved over time.', ar: 'نركز على التقدم العملي الذي يمكن قياسه ومشاركته وتحسينه مع مرور الوقت.' },
+      'form-title': { en: 'Join the movement', ar: 'انضم إلى الحركة' },
+      'form-label': { en: 'Email address', ar: 'عنوان البريد الإلكتروني' },
+      'subscribe-button': { en: 'Subscribe', ar: 'اشترك' },
+      'form-help': { en: 'By subscribing, you agree to receive sustainability updates.', ar: 'بالمشاركة، فإنك توافق على تلقي تحديثات الاستدامة.' },
+      'form-success': { en: 'Thanks for subscribing.', ar: 'شكرًا على الاشتراك.' },
+      'form-link': { en: 'Learn more', ar: 'معرفة المزيد' },
+      'form-detail': { en: 'Your email is used for this classroom demonstration only.', ar: 'يُستخدم بريدك الإلكتروني فقط لهذا العرض التعليمي في الصف.' },
+      'accordion-climate': { en: 'Climate action', ar: 'العمل المناخي' },
+      'accordion-climate-text': { en: 'Intel is working toward net-zero greenhouse gas emissions across global operations by 2040.', ar: 'تعمل إنتل على الوصول إلى انبعاثات غازات الدفيئة الصافية صفر عبر عملياتها العالمية بحلول عام 2040.' },
+      'accordion-water': { en: 'Water stewardship', ar: 'حفظ المياه' },
+      'accordion-water-text': { en: 'Conservation and reuse help advanced manufacturing use water more responsibly.', ar: 'يساعد الحفاظ على المياه وإعادة استخدامها التصنيع المتقدم على استخدام المياه بشكل أكثر مسؤولية.' },
+      'accordion-circular': { en: 'Circular design', ar: 'التصميم الدائري' },
+      'accordion-circular-text': { en: 'Circular thinking reduces waste and helps recover materials as products evolve.', ar: 'يعمل التفكير الدائري على تقليل النفايات ومساعدة استرجاع المواد مع تطوّر المنتجات.' }
+    };
+
+    const pageTranslations = {
+      '.top-bar a': { en: 'Explore the timeline <span aria-hidden="true">&#8594;</span>', ar: 'استكشف الخط الزمني <span aria-hidden="true">&#8594;</span>' },
+      '.hero-content .eyebrow': { en: 'Intel sustainability | 2006 to 2040', ar: 'استدامة إنتل | 2006 إلى 2040' },
+      '.hero-content h1': { en: 'Growing a better future,<br><em>one chip at a time.</em>', ar: 'نبني مستقبلاً أفضل،<br><em>شريحة تلو الأخرى.</em>' },
+      '.hero-copy': { en: "Follow Intel's environmental journey as technology, people, and the natural world move forward together.", ar: 'تابع رحلة إنتل البيئية مع تطور التكنولوجيا والناس والعالم الطبيعي معًا.' },
+      '.hero-content .button': { en: 'Start exploring <span aria-hidden="true">&#8595;</span>', ar: 'ابدأ الاستكشاف <span aria-hidden="true">&#8595;</span>' },
+      '.hero-note': { en: 'Responsible technology for a living planet', ar: 'تكنولوجيا مسؤولة من أجل كوكب حي' },
+      '.intro .eyebrow': { en: 'A living timeline', ar: 'خط زمني نابض بالحياة' },
+      '.intro h2': { en: 'Progress takes root over time.', ar: 'يتجذر التقدم مع مرور الوقت.' },
+      '.intro > p:last-child': { en: "Intel's RISE strategy connects climate action, water stewardship, waste reduction, and responsible technology. Select a milestone to see the story behind the goal.", ar: 'تربط استراتيجية RISE من إنتل بين العمل المناخي وإدارة المياه وتقليل النفايات والتكنولوجيا المسؤولة. اختر محطة لمعرفة القصة وراء الهدف.' },
+      '.timeline-section .section-heading .eyebrow': { en: 'Six milestones', ar: 'ست محطات' },
+      '.timeline-section .section-heading h2': { en: 'From footprint to forest floor.', ar: 'من البصمة إلى أرض الغابة.' },
+      '.scroll-hint': { en: 'Scroll sideways to explore <span aria-hidden="true">&#8594;</span>', ar: 'مرر جانبياً للاستكشاف <span aria-hidden="true">&#8594;</span>' },
+      '.achievements .eyebrow': { en: 'The bigger picture', ar: 'الصورة الأكبر' },
+      '.achievements h2': { en: 'Healthy systems make better technology.', ar: 'الأنظمة الصحية تصنع تكنولوجيا أفضل.' },
+      '.achievements .section-heading > p': { en: "These focus areas show how Intel's sustainability work reaches beyond a single emissions number.", ar: 'توضح مجالات التركيز هذه كيف يتجاوز عمل إنتل في الاستدامة رقمًا واحدًا للانبعاثات.' },
+      '.site-footer div p:first-child': { en: 'Intel sustainability, in progress.', ar: 'استدامة إنتل، رحلة مستمرة.' },
+      '.site-footer div p:last-child': { en: 'Explore responsibly <span aria-hidden="true">&#10022;</span>', ar: 'استكشف بمسؤولية <span aria-hidden="true">&#10022;</span>' }
+    };
+
+    const cardTranslations = {
+      en: {
+        titles: ['Turning the corner', 'RISE strategy begins', 'Net-zero commitment', '99% renewable electricity', 'Collaboration grows', 'A net-zero horizon'],
+        copies: ['Intel reached its peak operational greenhouse gas emissions and began accelerating investments in abatement and efficiency.', 'Intel introduced its RISE strategy and 2030 goals to make sustainability part of how it designs, builds, and delivers technology.', 'Intel announced a goal to reach net-zero greenhouse gas emissions across its global operations by 2040.', 'Intel reported that 99% of its electricity worldwide came from renewable sources, reducing the footprint of its operations.', 'Intel brought suppliers, government, and industry leaders together at its Sustainability Summit to share practical solutions.', "Intel's long-term target is to achieve net-zero greenhouse gas emissions across global operations."],
+        details: ['This turning point helped shape the long-term climate work that followed, from cleaner manufacturing to renewable electricity.', 'RISE stands for Responsible, Inclusive, Sustainable, and Enabling. Its goals cover climate, water, waste, and more.', 'The commitment focuses on Scope 1 and 2 emissions, with progress supported by efficiency, electrification, and renewable energy.', 'Renewable electricity is one part of a wider plan that also includes conservation, lower-carbon fuels, and supplier collaboration.', 'Semiconductor sustainability depends on the whole value chain, so collaboration helps ideas travel beyond one company.', 'The horizon is still ahead, making measurement, transparent reporting, and continued innovation essential.'],
+        button: 'Read milestone <span aria-hidden="true">+</span>'
+      },
+      ar: {
+        titles: ['نقطة التحول', 'بدء استراتيجية RISE', 'التزام بصافي الانبعاثات الصفري', 'كهرباء متجددة بنسبة 99٪', 'تعاون يتوسع', 'أفق بصافي انبعاثات صفري'],
+        copies: ['بلغت انبعاثات إنتل التشغيلية من غازات الدفيئة ذروتها، وبدأت الشركة بتسريع استثماراتها في الحد منها والكفاءة.', 'قدمت إنتل استراتيجية RISE وأهداف 2030 لجعل الاستدامة جزءًا من تصميم التكنولوجيا وبنائها وتقديمها.', 'أعلنت إنتل هدف الوصول إلى صافي انبعاثات صفري في عملياتها حول العالم بحلول عام 2040.', 'أفادت إنتل بأن 99٪ من الكهرباء في أنحاء العالم جاءت من مصادر متجددة، مما قلل أثر عملياتها.', 'جمعت إنتل الموردين والحكومات وقادة القطاع في قمة الاستدامة لمشاركة الحلول العملية.', 'يتمثل هدف إنتل طويل المدى في تحقيق صافي انبعاثات صفري من غازات الدفيئة في عملياتها العالمية.'],
+        details: ['ساعدت نقطة التحول هذه في تشكيل العمل المناخي طويل المدى، من التصنيع الأنظف إلى الكهرباء المتجددة.', 'ترمز RISE إلى المسؤولية والشمول والاستدامة والتمكين، وتشمل أهدافها المناخ والمياه والنفايات وغيرها.', 'يركز الالتزام على انبعاثات النطاقين الأول والثاني، بدعم من الكفاءة والكهرباء والطاقة المتجددة.', 'تمثل الكهرباء المتجددة جزءًا من خطة أوسع تشمل الحفاظ على الموارد والوقود الأقل انبعاثًا والتعاون مع الموردين.', 'تعتمد استدامة أشباه الموصلات على سلسلة القيمة بأكملها، لذلك يساعد التعاون على نشر الأفكار خارج نطاق الشركة.', 'لا يزال الأفق أمامنا، مما يجعل القياس وإعداد التقارير بشفافية والابتكار المستمر أمورًا أساسية.'],
+        button: 'اقرأ عن المحطة <span aria-hidden="true">+</span>'
+      }
+    };
+
+    const translateButton = document.getElementById('translate-button');
+    const directionButton = document.getElementById('direction-button');
+    const newsletterSection = document.querySelector('.newsletter-section');
+    const root = document.documentElement;
+    let currentLanguage = 'en';
+
+    function updateControlLabels() {
+      translateButton.textContent = currentLanguage === 'en' ? 'Use Arabic' : 'Use English';
+      directionButton.textContent = root.dir === 'rtl' ? 'Use LTR' : 'Use RTL';
+    }
+
+    function setTranslatedText(element, key, language) {
+      const value = translations[key]?.[language];
+      if (!value) return;
+
+      const icon = element.querySelector('i');
+
+      if (icon) {
+        element.innerHTML = '';
+        element.appendChild(document.createTextNode(value));
+        element.appendChild(icon);
+        return;
+      }
+
+      element.textContent = value;
+    }
+
+    function applyTranslations(language) {
+      currentLanguage = language;
+      Object.entries(pageTranslations).forEach(([selector, values]) => {
+        const element = document.querySelector(selector);
+        if (element) element.innerHTML = values[language];
+      });
+
+      const cards = document.querySelectorAll('.timeline-card');
+      const cardContent = cardTranslations[language];
+      cards.forEach((card, index) => {
+        card.querySelector('h3').textContent = cardContent.titles[index];
+        card.querySelector('.card-content > p:not(.year):not(.hidden-detail)').textContent = cardContent.copies[index];
+        card.querySelector('.details-button').innerHTML = cardContent.button;
+        card.querySelector('.hidden-detail').textContent = cardContent.details[index];
+      });
+
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        setTranslatedText(element, element.dataset.i18n, language);
+      });
+
+      document.querySelector('#email').placeholder = language === 'ar' ? 'you@example.com' : 'you@example.com';
+      newsletterSection.lang = language;
+      root.lang = language;
+      updateControlLabels();
+    }
+
+    translateButton.addEventListener('click', () => {
+      applyTranslations(currentLanguage === 'en' ? 'ar' : 'en');
+    });
+
+    directionButton.addEventListener('click', () => {
+      root.dir = root.dir === 'rtl' ? 'ltr' : 'rtl';
+      updateControlLabels();
+    });
+
     const detailButtons = document.querySelectorAll('.details-button');
 
     detailButtons.forEach((button) => {
@@ -235,6 +361,9 @@
       formSuccess.hidden = false;
       newsletterForm.reset();
     });
+
+    root.dir = 'ltr';
+    applyTranslations('en');
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
