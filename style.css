@@ -15,10 +15,6 @@ html { scroll-behavior: smooth; }
 
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: Georgia, 'Times New Roman', serif; }
 
-.site-controls { background: var(--forest); border: 1px solid rgba(243, 241, 232, .35); bottom: 22px; box-shadow: 0 8px 24px rgba(23, 61, 42, .24); display: flex; gap: 8px; padding: 8px; position: fixed; right: 22px; z-index: 10; }
-.control-button { background: var(--paper); border: 1px solid var(--paper); color: var(--forest); cursor: pointer; font-family: Arial, sans-serif; font-size: .7rem; font-weight: bold; min-height: 38px; padding: 8px 12px; }
-.control-button:hover, .control-button:focus-visible { background: var(--moss); border-color: var(--moss); outline: 3px solid rgba(224, 123, 67, .55); outline-offset: 2px; }
-
 a { color: inherit; }
 
 .hero { min-height: 680px; padding: 28px 7%; color: var(--cream); background: linear-gradient(115deg, rgba(17, 54, 37, .98), rgba(32, 92, 53, .88)), url('img/4.jpg') center / cover; position: relative; overflow: hidden; }
