@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <aside class="site-controls" aria-label="Language and text direction controls">
+    <button class="lang-button" id="translate-button" type="button">Use Arabic</button>
+    <button class="lang-button" id="direction-button" type="button">Use RTL</button>
+  </aside>
   <header class="hero">
     <div class="hero-nature" aria-hidden="true">
       <span class="branch branch-left"></span>
@@ -138,10 +142,6 @@
               <p class="eyebrow" data-i18n="newsletter-eyebrow">Stay connected</p>
               <h2 id="newsletter-title" data-i18n="newsletter-title"><i class="bi bi-arrow-up-right-circle" aria-hidden="true"></i> Small updates. Meaningful progress.</h2>
               <p data-i18n="newsletter-copy">Get occasional news about Intel's sustainability goals, actions, and reporting delivered to your inbox.</p>
-              <div class="lang-controls" aria-label="Language controls">
-                <button class="lang-button" id="translate-button" type="button">Use Arabic</button>
-                <button class="lang-button" id="direction-button" type="button">Use RTL</button>
-              </div>
               <a class="learn-more-button" href="#timeline" data-i18n="newsletter-link">Learn more <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
             </div>
           </div>
@@ -259,8 +259,20 @@
       '.achievements .eyebrow': { en: 'The bigger picture', ar: 'الصورة الأكبر' },
       '.achievements h2': { en: 'Healthy systems make better technology.', ar: 'الأنظمة الصحية تصنع تكنولوجيا أفضل.' },
       '.achievements .section-heading > p': { en: "These focus areas show how Intel's sustainability work reaches beyond a single emissions number.", ar: 'توضح مجالات التركيز هذه كيف يتجاوز عمل إنتل في الاستدامة رقمًا واحدًا للانبعاثات.' },
+      '.sources': { en: 'Information: <a href="https://www.intel.com/content/www/us/en/corporate-responsibility/corporate-responsibility.html" target="_blank" rel="noreferrer">Intel Corporate Responsibility</a> and <a href="https://www.intel.com/content/www/us/en/environment/2023-24-corporate-responsibility-report.html" target="_blank" rel="noreferrer">Intel 2023-24 report</a>. Photography from <a href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a>.', ar: 'المعلومات: <a href="https://www.intel.com/content/www/us/en/corporate-responsibility/corporate-responsibility.html" target="_blank" rel="noreferrer">مسؤولية إنتل المؤسسية</a> و<a href="https://www.intel.com/content/www/us/en/environment/2023-24-corporate-responsibility-report.html" target="_blank" rel="noreferrer">تقرير إنتل 2023-24</a>. الصور من <a href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a>.' },
       '.site-footer div p:first-child': { en: 'Intel sustainability, in progress.', ar: 'استدامة إنتل، رحلة مستمرة.' },
       '.site-footer div p:last-child': { en: 'Explore responsibly <span aria-hidden="true">&#10022;</span>', ar: 'استكشف بمسؤولية <span aria-hidden="true">&#10022;</span>' }
+    };
+
+    const achievementTranslations = {
+      en: {
+        titles: ['Climate action', 'Water stewardship', 'Circular design'],
+        copies: ['Reducing operational emissions through efficiency, renewable electricity, and a net-zero pathway.', 'Investing in conservation and reuse so advanced manufacturing can use water more responsibly.', 'Reducing waste and recovering materials as products and manufacturing processes evolve.']
+      },
+      ar: {
+        titles: ['العمل المناخي', 'الإدارة الرشيدة للمياه', 'التصميم الدائري'],
+        copies: ['خفض الانبعاثات التشغيلية من خلال الكفاءة والكهرباء المتجددة ومسار الوصول إلى صافي انبعاثات صفري.', 'الاستثمار في الحفاظ على المياه وإعادة استخدامها حتى يستخدم التصنيع المتقدم المياه بمسؤولية أكبر.', 'تقليل النفايات واستعادة المواد مع تطور المنتجات وعمليات التصنيع.']
+      }
     };
 
     const cardTranslations = {
@@ -319,6 +331,13 @@
         card.querySelector('.card-content > p:not(.year):not(.hidden-detail)').textContent = cardContent.copies[index];
         card.querySelector('.details-button').innerHTML = cardContent.button;
         card.querySelector('.hidden-detail').textContent = cardContent.details[index];
+      });
+
+      const achievements = document.querySelectorAll('.achievement-item');
+      const achievementContent = achievementTranslations[language];
+      achievements.forEach((achievement, index) => {
+        achievement.querySelector('h3').textContent = achievementContent.titles[index];
+        achievement.querySelector('p').textContent = achievementContent.copies[index];
       });
 
       document.querySelectorAll('[data-i18n]').forEach((element) => {
