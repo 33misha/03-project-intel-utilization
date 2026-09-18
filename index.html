@@ -297,7 +297,15 @@
       ],
       footerTagline: 'Intel sustainability, in progress.',
       footerPrompt: 'Explore responsibly <span aria-hidden="true">&#10022;</span>',
-      footerLinks: ['Privacy Policy', 'Terms of Use', 'Contact']
+      footerLinks: ['Privacy Policy', 'Terms of Use', 'Contact'],
+      newsletterFormTitle: 'Join the movement',
+      learnMore: 'Learn more',
+      accordionTitles: ['Climate action', 'Water stewardship', 'Circular design'],
+      accordionBodies: [
+        'Intel is working toward net-zero greenhouse gas emissions across global operations by 2040.',
+        'Conservation and reuse help advanced manufacturing use water more responsibly.',
+        'Circular thinking reduces waste and helps recover materials as products evolve.'
+      ]
     };
 
     const arabicContent = {
@@ -353,7 +361,15 @@
       ],
       footerTagline: 'استدامة إنتل، رحلة مستمرة.',
       footerPrompt: 'استكشف بمسؤولية <span aria-hidden="true">&#10022;</span>',
-      footerLinks: ['سياسة الخصوصية', 'شروط الاستخدام', 'تواصل معنا']
+      footerLinks: ['سياسة الخصوصية', 'شروط الاستخدام', 'تواصل معنا'],
+      newsletterFormTitle: 'انضم إلى الحركة',
+      learnMore: 'اعرف المزيد',
+      accordionTitles: ['العمل المناخي', 'الإدارة الرشيدة للمياه', 'التصميم الدائري'],
+      accordionBodies: [
+        'تسعى إنتل إلى تحقيق انبعاثات غازات دفيئة صفرية في عملياتها العالمية بحلول عام 2040.',
+        'يساعد الحفاظ على الموارد وإعادة الاستخدام التصنيع المتقدم في استخدام المياه بمسؤولية أكبر.',
+        'يعتمد التفكير الدائري على تقليل النفايات واستعادة المواد مع تطور المنتجات.'
+      ]
     };
 
     function syncDirectionButtonText() {
@@ -402,6 +418,21 @@
       document.querySelector('.btn-subscribe').textContent = content.subscribe;
       document.querySelector('#email-help').textContent = content.emailHelp;
       document.querySelector('#form-success').textContent = content.success;
+      document.querySelector('.newsletter-form h3').textContent = content.newsletterFormTitle;
+      document.querySelectorAll('.learn-more-button').forEach((button) => {
+        const iconMarkup = '<i class="bi bi-plus-lg" aria-hidden="true"></i>';
+        button.innerHTML = content.learnMore + ' ' + iconMarkup;
+      });
+      const accordionButtons = document.querySelectorAll('.newsletter-accordion .accordion-button');
+      accordionButtons.forEach((button, index) => {
+        const icon = '<i class="bi bi-cloud-sun" aria-hidden="true"></i>';
+        const icons = ['<i class="bi bi-cloud-sun" aria-hidden="true"></i>', '<i class="bi bi-droplet" aria-hidden="true"></i>', '<i class="bi bi-recycle" aria-hidden="true"></i>'];
+        button.innerHTML = icons[index] + ' ' + content.accordionTitles[index];
+      });
+      const accordionBodies = document.querySelectorAll('.newsletter-accordion .accordion-body');
+      accordionBodies.forEach((body, index) => {
+        body.textContent = content.accordionBodies[index];
+      });
       document.querySelector('.achievements .eyebrow').textContent = content.achievementsEyebrow;
       document.querySelector('.achievements h2').textContent = content.achievementsTitle;
       document.querySelector('.achievements .section-heading > p').textContent = content.achievementsIntro;
