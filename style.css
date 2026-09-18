@@ -102,10 +102,14 @@ footer p { margin-bottom: 0; }
 .newsletter-section .container { max-width: 1240px; }
 .newsletter-intro, .newsletter-topic, .newsletter-form { background: var(--paper); height: 100%; padding: 36px; }
 .newsletter-intro {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+.newsletter-intro > * {
+  max-width: 520px;
 }
 .newsletter-intro h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
 .newsletter-section h2 i, .newsletter-section h3 i { color: var(--orange); font-size: .8em; margin-inline-end: 8px; }
