@@ -169,7 +169,6 @@ footer p { margin-bottom: 0; }
 	footer { display: block; line-height: 1.7; }
 	footer p:last-child { margin-top: 12px; }
 	.site-footer nav { flex-wrap: wrap; gap: 10px 18px; margin-top: 20px; }
-	.site-controls { bottom: 12px; flex-direction: column; right: 12px; }
 	.input-group { display: block; }
 	.btn-subscribe { margin-top: 10px; min-height: 48px; width: 100%; }
 }
