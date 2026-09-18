@@ -10,7 +10,6 @@
 </head>
 <body>
   <aside class="site-controls" aria-label="Language and text direction controls">
-    <button class="lang-button" id="translate-button" type="button">Use Arabic</button>
     <button class="lang-button" id="direction-button" type="button">Use RTL</button>
   </aside>
   <header class="hero">
@@ -290,14 +289,12 @@
       }
     };
 
-    const translateButton = document.getElementById('translate-button');
     const directionButton = document.getElementById('direction-button');
     const newsletterSection = document.querySelector('.newsletter-section');
     const root = document.documentElement;
     let currentLanguage = 'en';
 
     function updateControlLabels() {
-      translateButton.textContent = currentLanguage === 'en' ? 'Use Arabic' : 'Use English';
       directionButton.textContent = root.dir === 'rtl' ? 'Use LTR' : 'Use RTL';
     }
 
@@ -350,14 +347,32 @@
       updateControlLabels();
     }
 
-    translateButton.addEventListener('click', () => {
-      applyTranslations(currentLanguage === 'en' ? 'ar' : 'en');
-    });
-
     directionButton.addEventListener('click', () => {
       root.dir = root.dir === 'rtl' ? 'ltr' : 'rtl';
       updateControlLabels();
     });
+
+    const rtlLanguages = /^(ar|fa|he|ku|ps|sd|ur|yi)(-|$)/i;
+
+    function syncDirectionWithGoogleTranslate() {
+      const bodyClasses = document.body.classList;
+      const translatedDirection = bodyClasses.contains('translated-rtl')
+        ? 'rtl'
+        : bodyClasses.contains('translated-ltr')
+          ? 'ltr'
+          : null;
+      const languageDirection = rtlLanguages.test(root.lang) ? 'rtl' : 'ltr';
+      const nextDirection = translatedDirection || (root.lang !== 'en' ? languageDirection : null);
+
+      if (nextDirection && root.dir !== nextDirection) {
+        root.dir = nextDirection;
+        updateControlLabels();
+      }
+    }
+
+    const translationObserver = new MutationObserver(syncDirectionWithGoogleTranslate);
+    translationObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'dir'] });
+    translationObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
     const detailButtons = document.querySelectorAll('.details-button');
 
@@ -382,7 +397,8 @@
     });
 
     root.dir = 'ltr';
-    applyTranslations('en');
+    updateControlLabels();
+    syncDirectionWithGoogleTranslate();
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
